@@ -28,11 +28,10 @@ On Error GoTo TratarErro
         .Wait 10000 'Espera de 10 segundos para a página poder carregar
     End With
     
-    'Declara as variáveis do Timer
-    Dim tempoInicial As Single, tempoLimite As Single
+    'Declara a variável do Timer
+    Dim tempoLimite As Single
     
-    tempoInicial = Timer
-    tempoLimite = tempoInicial + 60 'Tempo máximo de 1 minuto
+    tempoLimite = Timer + 60 'Tempo máximo de 1 minuto
 
     'Loop para aguardar a página ser carregada completamente
     Do While cxPesquisa Is Nothing And Timer < tempoLimite
