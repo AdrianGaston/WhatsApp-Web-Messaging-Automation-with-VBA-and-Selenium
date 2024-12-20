@@ -36,7 +36,7 @@ On Error GoTo TratarErro
     'Loop para aguardar a página ser carregada completamente
     Do While cxPesquisa Is Nothing And Timer < tempoLimite
         On Error Resume Next
-        Set cxPesquisa = cd.FindElementByXPath("//*[@id=""side""]/div[1]/div/div[2]/div[2]/div/div/p")
+        Set cxPesquisa = cd.FindElementByXPath("//*[@id='side']/div[1]/div/div[2]/div[2]/div/div/p")
         On Error GoTo 0
         cd.Wait 1000 'Espera mais 1 segundo
     Loop
@@ -50,7 +50,7 @@ On Error GoTo TratarErro
     End If
     
     'Encontra o campo de pesquisa
-    Set cxPesquisa = cd.FindElementByXPath("//*[@id=""side""]/div[1]/div/div[2]/div[2]/div/div/p")
+    Set cxPesquisa = cd.FindElementByXPath("//*[@id='side']/div[1]/div/div[2]/div[2]/div/div/p")
     cxPesquisa.SendKeys "Saved Messages"
     cd.Wait 1000 'Espera
 
@@ -59,7 +59,7 @@ On Error GoTo TratarErro
     cd.Wait 1000 'Espera
 
     'Localiza o campo de mensagem
-    Set cxMensagem = cd.FindElementByXPath("//*[@id=""main""]/footer/div[1]/div/span/div/div[2]/div[1]/div/div[1]/p")
+    Set cxMensagem = cd.FindElementByXPath("//*[@id='main']/footer/div[1]/div/span/div/div[2]/div[1]/div/div[1]/p")
     
     'Envia a mensagem
     cxMensagem.SendKeys "Hello World!"
