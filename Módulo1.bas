@@ -30,10 +30,10 @@ On Error GoTo TratarErro
     cd.Timeouts.PageLoad = 60000 'Tempo máximo para carregar a página (60 segundos)
     cd.Timeouts.ImplicitWait = 60000 'Tempo máximo para localizar o elemento (60 segundos)
     
-    'Declara a variável do Timer
-    Dim tempoInicial As Single
+    'Declara as variáveis do Timer
+    Dim tempoInicial As Single, tempoLimite As Single
+    
     tempoInicial = Timer
-    Dim tempoLimite As Single
     tempoLimite = tempoInicial + 60 'Tempo máximo de 1 minuto
 
     'Loop para aguardar a página ser carregada completamente
