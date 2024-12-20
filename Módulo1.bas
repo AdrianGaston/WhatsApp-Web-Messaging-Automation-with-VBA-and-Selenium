@@ -5,8 +5,7 @@ Private cd As Selenium.ChromeDriver
 
 Sub SendWhats()
     'Declaração de variáveis
-    Dim cxPesquisa As WebElement
-    Dim cxMensagem As WebElement
+    Dim cxPesquisa As WebElement, cxMensagem As WebElement
     Dim localMsg As New Keys
     
     'Inicializa o ChromeDriver
@@ -18,17 +17,16 @@ On Error GoTo TratarErro
     With cd
         .SetBinary "C:\Program Files\Google\Chrome\Application\chrome.exe" 'Define o caminho para o executável do Chrome
         .SetProfile Environ("LOCALAPPDATA") & "\Google\Chrome\User Data\Default" 'Define o caminho do perfil do Chrome onde a conta está logada
-        '.AddArgument "--remote-debugging-port=9222" 'Argumento para depuração remota (permite reutilizar sessões logadas)
+        .AddArgument "--remote-debugging-port=9222" 'Argumento para depuração remota (permite reutilizar sessões logadas)
         .AddArgument "--start-maximized" 'Inicia a janela maximizada
         .AddArgument "--hide-crash-restore-bubble" 'Evita que o Chrome exiba a mensagem de 'restauração de sessão'
         .AddArgument "--disable-notifications" 'Desabilita as notificações do navegador
+        .Timeouts.PageLoad = 60000 'Tempo máximo para carregar a página (60 segundos)
+        .Timeouts.ImplicitWait = 60000 'Tempo máximo para localizar o elemento (60 segundos)        
         .Start 'Inicia o Chrome
         .Get "https://web.whatsapp.com/" 'Acessa o WhatsApp Web
-        .Wait 10000 'Espera de 10 segundos
+        .Wait 10000 'Espera de 10 segundos para a página poder carregar
     End With
-
-    cd.Timeouts.PageLoad = 60000 'Tempo máximo para carregar a página (60 segundos)
-    cd.Timeouts.ImplicitWait = 60000 'Tempo máximo para localizar o elemento (60 segundos)
     
     'Declara as variáveis do Timer
     Dim tempoInicial As Single, tempoLimite As Single
@@ -41,7 +39,7 @@ On Error GoTo TratarErro
         On Error Resume Next
         Set cxPesquisa = cd.FindElementByXPath("//*[@id=""side""]/div[1]/div/div[2]/div[2]/div/div/p")
         On Error GoTo 0
-        cd.Wait 1000
+        cd.Wait 1000 'Espera mais 1 segundo
     Loop
 
     'Restaura o tratamento normal
