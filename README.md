@@ -27,7 +27,6 @@ This project uses VBA and Selenium to automate sending messages via WhatsApp Web
    - Press `F5` in the VBA editor to execute the code.  
 4. Follow the on-screen instructions to select contacts or groups and send messages.  
 
-**Note:** 🛑 Make sure WhatsApp Web is open and active in your browser before running the script.
 
 ## Disclaimer ⚠️
 
