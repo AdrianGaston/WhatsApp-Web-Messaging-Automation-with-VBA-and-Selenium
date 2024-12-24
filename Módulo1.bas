@@ -7,7 +7,8 @@ Sub SendWhats()
     'Declaração de variáveis
     Dim cxPesquisa As WebElement, cxMensagem As WebElement
     Dim localMsg As New Keys
-    
+    Dim tempoLimite As Single 'Variável do Timer
+
     'Inicializa o ChromeDriver
     Set cd = New Selenium.ChromeDriver
     
@@ -25,11 +26,7 @@ On Error GoTo TratarErro
         .Timeouts.ImplicitWait = 60000 'Tempo máximo para localizar o elemento (60 segundos)        
         .Start 'Inicia o Chrome
         .Get "https://web.whatsapp.com/" 'Acessa o WhatsApp Web
-        .Wait 10000 'Espera de 10 segundos para a página poder carregar
     End With
-    
-    'Declara a variável do Timer
-    Dim tempoLimite As Single
     
     tempoLimite = Timer + 60 'Tempo máximo de 1 minuto
 
