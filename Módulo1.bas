@@ -49,22 +49,19 @@ On Error GoTo TratarErro
     'Encontra o campo de pesquisa
     Set cxPesquisa = cd.FindElementByXPath("//*[@id='side']/div[1]/div/div[2]/div[2]/div/div/p")
     cxPesquisa.SendKeys "Saved Messages"
-    cd.Wait 1000 'Espera
 
     'Pressiona Enter para selecionar o contato
     cxPesquisa.SendKeys localMsg.Enter
-    cd.Wait 1000 'Espera
 
     'Localiza o campo de mensagem
     Set cxMensagem = cd.FindElementByXPath("//*[@id='main']/footer/div[1]/div/span/div/div[2]/div[1]/div/div[1]/p")
     
     'Envia a mensagem
     cxMensagem.SendKeys "Hello World!"
-    cd.Wait 1000 'Espera
 
     'Pressiona Enter para enviar a mensagem
     cxMensagem.SendKeys localMsg.Enter
-    cd.Wait 3000 'Espera
+    cd.Wait 2000 'Espera
     
     'Mensagem de conexão bem-sucedida no console
     Debug.Print "Conexão estabelecida com sucesso!"
