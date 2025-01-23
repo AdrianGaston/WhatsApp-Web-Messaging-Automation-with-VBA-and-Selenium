@@ -48,7 +48,9 @@ On Error GoTo TratarErro
     
     'Encontra o campo de pesquisa
     Set cxPesquisa = cd.FindElementByXPath("//*[@id='side']/div[1]/div/div[2]/div[2]/div/div/p")
-    cxPesquisa.SendKeys "Saved Messages"
+
+    'Seleciona o contato
+    cxPesquisa.SendKeys "Contato"
 
     'Pressiona Enter para selecionar o contato
     cxPesquisa.SendKeys localMsg.Enter
