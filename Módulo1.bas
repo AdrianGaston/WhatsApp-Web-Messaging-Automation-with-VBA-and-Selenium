@@ -41,6 +41,7 @@ On Error GoTo TratarErro
     'Restaura o tratamento normal
     On Error GoTo TratarErro
 
+    'Verifica se o elemento de pesquisa do WhatsApp foi encontrado após os 60 segundos, caso contrário, exibe uma mensagem de erro e interrompe a execução
     If cxPesquisa Is Nothing Then
         MsgBox "Não foi possível carregar o WhatsApp. Tente novamente mais tarde.", vbCritical, "Erro de Carregamento"
         Exit Sub
