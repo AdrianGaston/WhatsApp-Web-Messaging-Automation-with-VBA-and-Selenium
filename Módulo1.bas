@@ -33,7 +33,7 @@ On Error GoTo TratarErro
     'Loop para aguardar a página ser carregada completamente
     Do While cxPesquisa Is Nothing And Timer < tempoLimite
         On Error Resume Next
-        Set cxPesquisa = cd.FindElementByXPath("//*[@id='side']/div[1]/div/div[2]/div[2]/div/div/p")
+        Set cxPesquisa = cd.FindElementByXPath("//*[@id='side']/div[1]/div/div[2]/div/div/div/p")
         On Error GoTo 0
         cd.Wait 1000 'Espera mais 1 segundo
     Loop
@@ -46,9 +46,6 @@ On Error GoTo TratarErro
         MsgBox "Não foi possível carregar o WhatsApp. Tente novamente mais tarde.", vbCritical, "Erro de Carregamento"
         Exit Sub
     End If
-    
-    'Encontra o campo de pesquisa
-    Set cxPesquisa = cd.FindElementByXPath("//*[@id='side']/div[1]/div/div[2]/div[2]/div/div/p")
 
     'Seleciona o contato
     cxPesquisa.SendKeys "Contato"
